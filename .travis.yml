@@ -1,0 +1,9 @@
+services:
+  - docker
+
+before_install:
+  - docker image build -t jackrodwell/flasky:v1.0 .
+
+deploy:
+  - docker login --username "$DOCKERUSER" --password "$DOCKERPWD"
+  - docker image push jackrodwell/flasky:v1.0
